@@ -1,7 +1,13 @@
 import UIKit
 
 extension UIViewController {
+    
     /// タイトルとメッセージ（それぞれ省略可能）を表示して了承を求めるシンプルなアラートを表示する
+    ///
+    /// - Parameters:
+    ///   - title: アラートのタイトル文字列
+    ///   - message: アラートのメッセージ文字列
+    ///   - completion: 表示させた時の処理
     func showAlert(title: String?, message: String?, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
@@ -10,12 +16,29 @@ extension UIViewController {
     }
     
     /// タイトルとメッセージ（それぞれ省略可能）を表示して了承を求めるシンプルなアラートを表示する
-    func showActionAlert(title: String?, message: String?, okAction: UIAlertAction, completion: (() -> Void)? = nil) {
+    ///
+    /// - Parameters:
+    ///   - title: アラートのタイトル文字列
+    ///   - message: アラートのメッセージ文字列
+    ///   - canCancel: キャンセルボタンを表示するか
+    ///   - okAction: 肯定アクション
+    ///   - completion: 表示させた時の処理
+    func showActionAlert(title: String?,
+                         message: String?,
+                         canCancel: Bool,
+                         okAction: UIAlertAction,
+                         completion: (() -> Void)? = nil) {
+    
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         alert.addAction(okAction)
-        alert.addAction(cancelAction)
+
+        if canCancel {
+            alert.addAction(UIAlertAction(
+                title: NSLocalizedString("Cancel", comment: ""),
+                style: .cancel,
+                handler: nil)
+            )
+        }
         (navigationController ?? self)?.present(alert, animated: true, completion: completion)
     }
-
 }
