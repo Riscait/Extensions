@@ -1,19 +1,27 @@
 # Extensions
 
-## DateFormatter+ext
+## Contents
+
+### Int+ext
+Easy Increment and decrement.
+
+### String+ext
+Easy localization.
+
+### DateFormatter+ext
 Frequently used formatter.
 
-## UIColor+ext
+### UIColor+ext
 from Hex color code.
 
-## UIDevice+ext
+### UIDevice+ext
 Get model name.
 
-## UINavigationItem+ext
+### UINavigationItem+ext
 Show title image.
 
-## UIViewController+ActivityIndicator
+### UIViewController+ActivityIndicator
 Show ActivityIndicator on Dialog popup.
 
-## UIViewController+Alert
+### UIViewController+Alert
 Show Alert.
