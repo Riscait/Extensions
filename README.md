@@ -17,6 +17,9 @@ from Hex color code.
 ### UIDevice+ext
 Get model name.
 
+### UIImage+Resize
+Resize an image by specifying a value, magnification, width, height, etc.
+
 ### UINavigationItem+ext
 Show title image.
 
