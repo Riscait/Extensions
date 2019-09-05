@@ -41,4 +41,16 @@ extension UIViewController {
         }
         (navigationController ?? self)?.present(alert, animated: true, completion: completion)
     }
+    
+    /// Error表示用アラート。ローカライズされた説明文と、オリジナルのErrorメッセージを表示する
+    ///
+    /// - Parameters:
+    ///   - error: Error
+    ///   - completion: 表示完了時の処理
+    func showErrorAlert(_ error: Error, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: error.localizedDescription, message: "\(error)", preferredStyle: .alert)
+        let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
+        alert.addAction(ok)
+        (navigationController ?? self)?.present(alert, animated: true, completion: completion)
+    }
 }
